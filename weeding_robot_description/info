@@ -1,0 +1,2 @@
+this package was created by:
+catkin_create_pkg weeding_robot_description rospy rviz controller_manager gazebo_ros joint_state_publisher robot_state_publisher

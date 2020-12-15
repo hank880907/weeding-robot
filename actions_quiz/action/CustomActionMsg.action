@@ -1,0 +1,5 @@
+string goal
+---
+int32 result
+---
+string feedback
