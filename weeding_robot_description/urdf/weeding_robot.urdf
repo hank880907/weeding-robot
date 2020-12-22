@@ -50,7 +50,7 @@
         <visual>
             <origin rpy="1.57 0 0" xyz="-0.585 0.345 -0.082"/>
             <geometry>
-                <mesh filename="package://weeding_robot_description/models/WeedingRobotBodyV2.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://weeding_robot_description/models/WeedingRobotBodyV3.STL" scale="0.001 0.001 0.001"/>
             </geometry>
 
             <material name="grey"/>
@@ -176,5 +176,37 @@
         <axis xyz="1 0 0"/>
 	</joint>
 
-   
+    <gazebo reference="left_wheel">
+        <mu1>0.1</mu1>
+        <mu2>0.1</mu2>
+        <kp>500000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+        <material>Gazebo/FlatBlack</material>
+     </gazebo>
+
+    <gazebo reference="right_wheel">
+        <mu1>0.1</mu1>
+        <mu2>0.1</mu2>
+        <kp>500000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+        <material>Gazebo/FlatBlack</material>
+    </gazebo>
+
+    <gazebo reference="back_wheel">
+        <mu1>0.1</mu1>
+        <mu2>0.1</mu2>
+        <kp>1000000.0</kp>
+        <kd>100.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>1.0</maxVel>
+        <material>Gazebo/FlatBlack</material>
+    </gazebo>
+
+    
 </robot>
