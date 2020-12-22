@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<robot name="weeding_robot">
+
+    <material name="grey">
+        <color rgba="0.75 0.75 0.75 1"/>
+    </material>
+    <material name="blue">
+        <color rgba="0 0 0.8 1"/>
+    </material>
+    <material name="red">
+        <color rgba="0.8 0 0 1"/>
+    </material>
+    <material name="green">
+        <color rgba="0 0.8 0 1"/>
+    </material>
+
+    <!--gazebo plugin for simulation-->
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/weeding_robot</robotNamespace>
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+            <legacyModeNS>true</legacyModeNS>
+        </plugin>
+    </gazebo>
+
+	<!-- * * * Link Definitions * * * -->
+
+    <link name="base_footprint"/>
+
+    <joint name="base_joint" type="fixed">
+        <parent link="base_footprint"/>
+        <child link="base_link"/>
+        <origin xyz="0.0 0.0 0.010" rpy="0 0 0"/>
+    </joint>
+
+    <link name="base_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="5" />
+            <inertia ixx="0.417041666667" ixy="0.0" ixz="0.0" iyy="0.833333333333" iyz="0.0" izz="0.417041666667"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="1.57 0 0" xyz="-0.5 0.345 0"/>
+            <geometry>
+                <mesh filename="package://weeding_robot_description/models/BodycollisionBox.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="1.57 0 0" xyz="-0.585 0.345 -0.082"/>
+            <geometry>
+                <mesh filename="package://weeding_robot_description/models/WeedingRobotBodyV2.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+
+            <material name="grey"/>
+
+        </visual>
+    </link>
+
+    <link name="left_wheel">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="2.9" />
+            <inertia ixx="0.0269397916667" ixy="0.0" ixz="0.0" iyy="0.0269397916667" iyz="0.0" izz="0.04440625"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="0 0 1.57" xyz="0.07 -0.175 -0.175"/>
+            <geometry>
+                <mesh filename="package://weeding_robot_description/models/wheelcollisionBox.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="1.57 0 0" xyz="-0.0677 0.142 -0.1420"/>
+            <geometry>
+                <mesh filename="package://weeding_robot_description/models/wheel.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+
+            <material name="grey"/>
+
+        </visual>
+    </link>
+
+    <joint name="left_wheel_joint" type="continuous">
+    	<parent link="base_link"/>
+    	<child link="left_wheel"/>
+        <origin xyz="-0.572 0.195 -0.03" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+	</joint>
+
+    <transmission name="left_wheel_tran">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_wheel_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="left_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <link name="right_wheel">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="2.9" />
+            <inertia ixx="0.0269397916667" ixy="0.0" ixz="0.0" iyy="0.0269397916667" iyz="0.0" izz="0.04440625"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="0 0 1.57" xyz="0.07 -0.175 -0.175"/>
+            <geometry>
+                <mesh filename="package://weeding_robot_description/models/wheelcollisionBox.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="1.57 0 0" xyz="-0.0677 0.142 -0.1420"/>
+            <geometry>
+                <mesh filename="package://weeding_robot_description/models/wheel.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+
+            <material name="grey"/>
+
+        </visual>
+    </link>
+
+    <joint name="right_wheel_joint" type="continuous">
+    	<parent link="base_link"/>
+    	<child link="right_wheel"/>
+        <origin xyz="0.572 0.195 -0.03" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+	</joint>
+
+    <transmission name="right_wheel_tran">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_wheel_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="right_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <link name="back_wheel">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="2.9" />
+            <inertia ixx="0.0269397916667" ixy="0.0" ixz="0.0" iyy="0.0269397916667" iyz="0.0" izz="0.04440625"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="0 0 1.57" xyz="0.07 -0.175 -0.125"/>
+            <geometry>
+                <mesh filename="package://weeding_robot_description/models/wheelcollisionBox.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="1.5 0 0.1" xyz="-0.085 0.145 -0.125"/>
+            <geometry>
+                <mesh filename="package://weeding_robot_description/models/back_wheel.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+
+            <material name="grey"/>
+
+        </visual>
+    </link>
+
+    <joint name="back_wheel_joint" type="fixed">
+    	<parent link="base_link"/>
+    	<child link="back_wheel"/>
+        <origin xyz="0 -0.63 -0.085" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+	</joint>
+
+   
+</robot>
