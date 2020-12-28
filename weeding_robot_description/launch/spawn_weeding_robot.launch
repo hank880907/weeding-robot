@@ -6,7 +6,7 @@
         <arg name="z" value="0.2" />
         <arg 
         name="urdf_robot_file"
-        value="$(find weeding_robot_description)/urdf/weeding_robot.urdf"
+        value="$(find weeding_robot_description)/urdf/weeding_robot.xacro"
         />
         <arg name="robot_name" value="weeding_robot" />
     </include>

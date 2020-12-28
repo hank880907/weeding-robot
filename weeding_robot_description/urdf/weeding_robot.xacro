@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<robot name="weeding_robot">
+<robot name="weeding_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<xacro:include filename="$(find weeding_robot_description)/urdf/weeding_robot.gazebo.xacro" />
 
     <material name="grey">
         <color rgba="0.75 0.75 0.75 1"/>
@@ -14,14 +15,6 @@
         <color rgba="0 0.8 0 1"/>
     </material>
 
-    <!--gazebo plugin for simulation-->
-    <gazebo>
-        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/weeding_robot</robotNamespace>
-            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-            <legacyModeNS>true</legacyModeNS>
-        </plugin>
-    </gazebo>
 
 	<!-- * * * Link Definitions * * * -->
 
@@ -86,7 +79,7 @@
     <joint name="left_wheel_joint" type="continuous">
     	<parent link="base_link"/>
     	<child link="left_wheel"/>
-        <origin xyz="-0.572 0.195 -0.03" rpy="0 0 0"/>
+        <origin xyz="-0.572 0.195 -0.03" rpy="0 3.14 0"/>
         <axis xyz="1 0 0"/>
 	</joint>
 
@@ -129,7 +122,7 @@
     <joint name="right_wheel_joint" type="continuous">
     	<parent link="base_link"/>
     	<child link="right_wheel"/>
-        <origin xyz="0.572 0.195 -0.03" rpy="0 0 0"/>
+        <origin xyz="0.572 0.195 -0.03" rpy="0 3.14 0"/>
         <axis xyz="1 0 0"/>
 	</joint>
 
@@ -175,38 +168,6 @@
         <origin xyz="0 -0.63 -0.085" rpy="0 0 0"/>
         <axis xyz="1 0 0"/>
 	</joint>
-
-    <gazebo reference="left_wheel">
-        <mu1>0.1</mu1>
-        <mu2>0.1</mu2>
-        <kp>500000.0</kp>
-        <kd>10.0</kd>
-        <minDepth>0.001</minDepth>
-        <maxVel>0.1</maxVel>
-        <fdir1>1 0 0</fdir1>
-        <material>Gazebo/FlatBlack</material>
-     </gazebo>
-
-    <gazebo reference="right_wheel">
-        <mu1>0.1</mu1>
-        <mu2>0.1</mu2>
-        <kp>500000.0</kp>
-        <kd>10.0</kd>
-        <minDepth>0.001</minDepth>
-        <maxVel>0.1</maxVel>
-        <fdir1>1 0 0</fdir1>
-        <material>Gazebo/FlatBlack</material>
-    </gazebo>
-
-    <gazebo reference="back_wheel">
-        <mu1>0.1</mu1>
-        <mu2>0.1</mu2>
-        <kp>1000000.0</kp>
-        <kd>100.0</kd>
-        <minDepth>0.001</minDepth>
-        <maxVel>1.0</maxVel>
-        <material>Gazebo/FlatBlack</material>
-    </gazebo>
 
     
 </robot>

@@ -1,11 +1,11 @@
 <launch>
 
   <!-- USE: roslaunch my_mira_description urdf_visualize.launch model:='$(find myrobot_package)/urdf/myrobot.urdf' -->
-  <!-- roslaunch weeding_robot_description urdf_visualize.launch model:='$(find weeding_robot_description)/urdf/weeding_robot.urdf'-->
+  <!-- roslaunch weeding_robot_description urdf_visualize.launch model:='$(find weeding_robot_description)/urdf/weeding_robot.xacro'-->
   <arg name="model" default=""/>
 
 
-  <param name="robot_description" command="cat $(arg model)" />
+  <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
 
   <!-- send fake joint values -->
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="weeding_robot" >
+    <gazebo>
+        <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+            <legacyMode>false</legacyMode>
+            <alwaysOn>true</alwaysOn>
+            <publishWheelTF>true</publishWheelTF>
+            <publishTf>1</publishTf>
+            <wheelSeparation>1.1</wheelSeparation>
+            <wheelDiameter>0.34</wheelDiameter>
+            <publishWheelJointState>true</publishWheelJointState>
+            <updateRate>100.0</updateRate>
+            <leftJoint>left_wheel_joint</leftJoint>
+            <rightJoint>right_wheel_joint</rightJoint>
+            <wheelAcceleration>1.0</wheelAcceleration>
+            <torque>20</torque>
+            <commandTopic>/weeding_robot/cmd_vel</commandTopic>
+            <odometryTopic>odom</odometryTopic>
+            <odometryFrame>odom</odometryFrame>
+            <robotBaseFrame>base_footprint</robotBaseFrame>
+        </plugin>
+    </gazebo>
+
+
+    <gazebo>
+        <plugin name="gazebo_ros_imu_controller" filename="libgazebo_ros_imu.so">
+            <!-- <robotNamespace></robotNamespace> -->
+            <topicName>imu/data</topicName>
+            <serviceName>imu/service</serviceName>
+            <bodyName>base_link</bodyName>
+            <gaussianNoise>0</gaussianNoise>
+            <rpyOffsets>0 0 0</rpyOffsets>
+            <updateRate>30.0</updateRate>
+            <alwaysOn>true</alwaysOn>
+            <gaussianNoise>0</gaussianNoise>
+        </plugin>
+    </gazebo>
+
+    <gazebo reference="left_wheel">
+        <mu1>0.1</mu1>
+        <mu2>0.1</mu2>
+        <kp>500000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+        <material>Gazebo/Grey</material>
+     </gazebo>
+
+    <gazebo reference="right_wheel">
+        <mu1>0.1</mu1>
+        <mu2>0.1</mu2>
+        <kp>500000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <gazebo reference="back_wheel">
+        <mu1>0.1</mu1>
+        <mu2>0.1</mu2>
+        <kp>1000000.0</kp>
+        <kd>100.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>1.0</maxVel>
+        <material>Gazebo/DarkGrey</material>
+    </gazebo>
+
+</robot>
