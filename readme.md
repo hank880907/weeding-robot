@@ -22,6 +22,7 @@ TODO:
 - remote controller
 - robot navigation
 - microcontrollers programs
+- hardware construcations
 
 
 Optional task to perfect the system:
