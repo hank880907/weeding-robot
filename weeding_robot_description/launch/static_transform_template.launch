@@ -1,0 +1,8 @@
+<launch>
+    <node pkg="tf" type="static_transform_publisher" name="name_of_node" 
+          args="x y z yaw pitch roll frame_id child_frame_id period_in_ms">
+    </node>
+</launch>
+
+
+<!-- static_transform_publisher x y z yaw pitch roll frame_id child_frame_id period_in_ms -->
