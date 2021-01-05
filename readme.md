@@ -1,12 +1,14 @@
-#Brifing#
+# Brifing #
 
-Given the gps waypoint, the weeding robot need to do path planning and pass all the waypoint sequentially. The accuracy of GPS is about 5 meter, but inorder to not harm the crops, it need to achieve the accuracy of about 5 cm.
+Given the gps waypoint, the weeding robot need to do path planning and pass all the waypoint sequentially.
+The accuracy of GPS is about 5 meter, but inorder to not harm the crops, it need to achieve the accuracy of about 5 cm.
 This is achieved by fusing the IMU, odometry, and differential GPS data.
 
 
 
+# Installation #
 This is the workspace of the weeding robot project.
-clone this repository to your catkin workspace and install the necessary packages.
+Clone this repository to your catkin workspace and install the necessary packages.
 
 the packages can be install by:
 
@@ -17,13 +19,15 @@ for example, robot_localization package can be installed by:
     sudo apt-get ros-kinetic-robot-localization
 
 
-Done:
+# Progess tracking #
+
+## Done ##
 
 - weeding robot simulation
 - ros controller interface
 
 
-TODO:
+## TODO ##
 
 - hardware interfacing
 - remote controller
@@ -32,10 +36,12 @@ TODO:
 - hardware construcations
 
 
-Optional task to perfect the system:
+## Optional task to perfect the system ##
 
 - measure the accurate data of the robot (e.g. mass, inertias)
 - computer vision system
 
+
+# Credit #
 
 Mantainer: Hank Wu (jhw83@uclive.ac.nz)
