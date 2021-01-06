@@ -1,3 +1,0 @@
-base_link_frame: base_link
-odom_frame: odom
-world_frame: odom
