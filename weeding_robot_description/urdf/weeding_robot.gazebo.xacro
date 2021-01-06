@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="weeding_robot" >
     <gazebo>
         <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
-            <legacyMode>false</legacyMode>
+            <legacyMode>true</legacyMode>
             <alwaysOn>true</alwaysOn>
             <publishWheelTF>true</publishWheelTF>
             <publishTf>1</publishTf>
