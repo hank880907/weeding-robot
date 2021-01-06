@@ -15,11 +15,43 @@
             <wheelAcceleration>1.0</wheelAcceleration>
             <torque>20</torque>
             <commandTopic>/weeding_robot/cmd_vel</commandTopic>
-            <odometryTopic>odom</odometryTopic>
-            <odometryFrame>odom</odometryFrame>
-            <robotBaseFrame>base_footprint</robotBaseFrame>
+            <odometryTopic>/odom</odometryTopic>
+            <odometryFrame>/odom</odometryFrame>
+            <robotBaseFrame>/base_footprint</robotBaseFrame>
         </plugin>
     </gazebo>
+
+
+    <!-- differential drive setting from turtlebot: 
+    
+       <gazebo>
+      <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
+         <alwaysOn>true</alwaysOn>
+         <updateRate>20</updateRate>
+         <publishTf> true </publishTf>
+         <leftJoint>wheel_right_joint</leftJoint>
+         <rightJoint>wheel_left_joint</rightJoint>
+         <wheelSeparation>.230</wheelSeparation>
+         <wheelDiameter>0.070</wheelDiameter>
+         <torque>5.0</torque>
+         <commandTopic>/cmd_vel</commandTopic>
+         <odometrySource>world</odometrySource> # 'encoder' instead of 'world' is also possible 
+         <odometryTopic>/odom</odometryTopic> # relative/name ,  /global/name 
+         <odometryFrame>/odom</odometryFrame>
+         <robotBaseFrame>/base_footprint</robotBaseFrame>
+         <publishOdomTF> true </publishOdomTF>
+         <publishWheelJointState>true</publishWheelJointState>
+        # Set to true to publish transforms for the wheel links, defaults to false 
+         <publishWheelTF>true</publishWheelTF>
+         <wheelAcceleration> 0 </wheelAcceleration>
+         <wheelTorque> 5.0 </wheelTorque>
+         <legacyMode>true</legacyMode>
+         <rosDebugLevel> na </rosDebugLevel> #<rosDebugLevel>Debug</rosDebugLevel>
+      </plugin>
+   </gazebo>
+    
+    
+    -->
 
 
     <gazebo>

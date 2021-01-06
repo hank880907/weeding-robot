@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
     <include file="$(find weeding_robot_description)/launch/spawn_weeding_robot.launch"/>
-    <!--<include file="$(find weeding_robot_description)/launch/weeding_robot_control.launch"/>-->
+    <include file="$(find weeding_robot_description)/launch/weeding_robot_control.launch"/>
 </launch>
