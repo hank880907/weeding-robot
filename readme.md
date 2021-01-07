@@ -4,16 +4,18 @@ Given the gps waypoint, the weeding robot need to do path planning and pass all 
 The accuracy of GPS is about 5 meter, but inorder to not harm the crops, it need to achieve the accuracy of about 5 cm.
 This is achieved by fusing the IMU, odometry, and differential GPS data.
 
-ROS was used for the project
+This project was implemented in ROS
 
 # System Requirment #
 
 Ubuntu 16.04
+
 ROS kinetic
 
 # Installation #
-This is the workspace of the weeding robot project.
-Clone this repository to the catkin workspace code(src) folder and install the necessary packages.
+This is the workspace of the weeding robot project. So first, you need to have a catkin workspace. See ROS website for more informantion.
+
+Clone this repository to the catkin workspace src folder and install the necessary packages.
 
 the packages can be install by:
 
@@ -22,6 +24,8 @@ the packages can be install by:
 for example, robot_localization package can be installed by:
 
     sudo apt-get ros-kinetic-robot-localization
+
+VS code are recommended IDE. It has a ROS plugin that you can install to make your life easier.
 
 
 # Progess tracking #
@@ -43,7 +47,7 @@ for example, robot_localization package can be installed by:
 
 ## Optional task to perfect the system ##
 
-- measure the accurate data of the robot (e.g. mass, inertias)
+- measure the accurate data of the robot (e.g. mass, inertias) and update the URDF files. Approximated value was used currently.
 - computer vision system
 
 

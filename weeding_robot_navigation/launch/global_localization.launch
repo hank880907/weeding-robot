@@ -1,0 +1,9 @@
+<launch>
+
+    <!--- Start AMCL Localization -->
+    <include file="$(find my_sumit_xl_tools)/launch/start_amcl_localization.launch" />
+    
+    <!-- Start EKF Localization -->
+    <include file="$(find my_sumit_xl_tools)/launch/start_ekf_localization.launch" />
+
+</launch>
