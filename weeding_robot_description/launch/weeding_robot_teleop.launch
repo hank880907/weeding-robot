@@ -1,5 +1,0 @@
-
-<launch>
-    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="weeding_robot_teleop_keyboard"  output="screen" args="/cmd_vel:=/weeding_robot/cmd_vel">
-    </node>
-</launch>

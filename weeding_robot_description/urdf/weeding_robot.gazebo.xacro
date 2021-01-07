@@ -1,11 +1,20 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="weeding_robot" >
     <gazebo>
-        <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+
+
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <legacyModeNS>true</legacyModeNS>
+            <robotNamespace>/weeding_robot</robotNamespace>
+        </plugin>
+
+
+
+        <!--plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
             <legacyMode>true</legacyMode>
             <alwaysOn>true</alwaysOn>
             <publishWheelTF>true</publishWheelTF>
-            <publishTf>1</publishTf>
+            <publishTf>true</publishTf>
             <wheelSeparation>1.1</wheelSeparation>
             <wheelDiameter>0.34</wheelDiameter>
             <publishWheelJointState>true</publishWheelJointState>
@@ -13,12 +22,17 @@
             <leftJoint>left_wheel_joint</leftJoint>
             <rightJoint>right_wheel_joint</rightJoint>
             <wheelAcceleration>1.0</wheelAcceleration>
+            <wheelTorque> 5.0 </wheelTorque>
             <torque>20</torque>
             <commandTopic>/weeding_robot/cmd_vel</commandTopic>
+            <odometrySource>world</odometrySource>
             <odometryTopic>/odom</odometryTopic>
             <odometryFrame>/odom</odometryFrame>
             <robotBaseFrame>/base_footprint</robotBaseFrame>
-        </plugin>
+            <publishOdomTF> true </publishOdomTF>
+            <rosDebugLevel> na </rosDebugLevel>
+        </plugin-->
+        
     </gazebo>
 
 
