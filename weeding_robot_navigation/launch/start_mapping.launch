@@ -1,8 +1,8 @@
 <launch>
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
-      <remap from="scan" to ="/hokuyo_base/scan"/>
-      <param name="base_frame" value="summit_xl_a_base_footprint"/>
-      <param name="odom_frame" value="summit_xl_a_odom"/>
+      <!--remap from="scan" to ="/hokuyo_base/scan"/-->
+      <param name="base_frame" value="base_footprint"/>
+      <param name="odom_frame" value="odom"/>
       <!-- Process 1 out of every this many scans (set it to a higher number to skip more scans)  -->
     <param name="throttle_scans" value="1"/>
 
