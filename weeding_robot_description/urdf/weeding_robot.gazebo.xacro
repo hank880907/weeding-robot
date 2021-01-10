@@ -1,72 +1,29 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="weeding_robot" >
+
+
+
+
     <gazebo>
-
-
-        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-            <legacyModeNS>true</legacyModeNS>
-            <robotNamespace>/weeding_robot</robotNamespace>
-        </plugin>
-
-
-
-        <!--plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
-            <legacyMode>true</legacyMode>
+        <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+            <legacyMode>false</legacyMode>
             <alwaysOn>true</alwaysOn>
             <publishWheelTF>true</publishWheelTF>
-            <publishTf>true</publishTf>
-            <wheelSeparation>1.1</wheelSeparation>
-            <wheelDiameter>0.34</wheelDiameter>
+            <publishTf>1</publishTf>
             <publishWheelJointState>true</publishWheelJointState>
             <updateRate>100.0</updateRate>
             <leftJoint>left_wheel_joint</leftJoint>
             <rightJoint>right_wheel_joint</rightJoint>
+            <wheelSeparation>1.1</wheelSeparation>
+            <wheelDiameter>0.34</wheelDiameter>
             <wheelAcceleration>1.0</wheelAcceleration>
-            <wheelTorque> 5.0 </wheelTorque>
             <torque>20</torque>
             <commandTopic>/weeding_robot/cmd_vel</commandTopic>
-            <odometrySource>world</odometrySource>
-            <odometryTopic>/odom</odometryTopic>
-            <odometryFrame>/odom</odometryFrame>
-            <robotBaseFrame>/base_footprint</robotBaseFrame>
-            <publishOdomTF> true </publishOdomTF>
-            <rosDebugLevel> na </rosDebugLevel>
-        </plugin-->
-        
+            <odometryTopic>odom</odometryTopic>
+            <odometryFrame>odom</odometryFrame>
+            <robotBaseFrame>base_link</robotBaseFrame>
+        </plugin>
     </gazebo>
-
-
-    <!-- differential drive setting from turtlebot: 
-    
-       <gazebo>
-      <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
-         <alwaysOn>true</alwaysOn>
-         <updateRate>20</updateRate>
-         <publishTf> true </publishTf>
-         <leftJoint>wheel_right_joint</leftJoint>
-         <rightJoint>wheel_left_joint</rightJoint>
-         <wheelSeparation>.230</wheelSeparation>
-         <wheelDiameter>0.070</wheelDiameter>
-         <torque>5.0</torque>
-         <commandTopic>/cmd_vel</commandTopic>
-         <odometrySource>world</odometrySource> # 'encoder' instead of 'world' is also possible 
-         <odometryTopic>/odom</odometryTopic> # relative/name ,  /global/name 
-         <odometryFrame>/odom</odometryFrame>
-         <robotBaseFrame>/base_footprint</robotBaseFrame>
-         <publishOdomTF> true </publishOdomTF>
-         <publishWheelJointState>true</publishWheelJointState>
-        # Set to true to publish transforms for the wheel links, defaults to false 
-         <publishWheelTF>true</publishWheelTF>
-         <wheelAcceleration> 0 </wheelAcceleration>
-         <wheelTorque> 5.0 </wheelTorque>
-         <legacyMode>true</legacyMode>
-         <rosDebugLevel> na </rosDebugLevel> #<rosDebugLevel>Debug</rosDebugLevel>
-      </plugin>
-   </gazebo>
-    
-    
-    -->
-
 
     <gazebo>
         <plugin name="gazebo_ros_imu_controller" filename="libgazebo_ros_imu.so">
