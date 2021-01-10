@@ -83,6 +83,17 @@
         <axis xyz="1 0 0"/>
 	</joint>
 
+    <transmission name="left_wheel_tran">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="left_wheel_joint">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="left_motor">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
 
     <link name="right_wheel">
         <inertial>
@@ -115,6 +126,18 @@
         <origin xyz="0.572 0.195 -0.03" rpy="0 3.14 0"/>
         <axis xyz="1 0 0"/>
 	</joint>
+
+    <transmission name="right_wheel_tran">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="right_wheel_joint">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="right_motor">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
 
 
     <link name="back_wheel">

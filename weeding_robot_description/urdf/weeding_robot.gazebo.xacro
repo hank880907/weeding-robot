@@ -2,13 +2,18 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="weeding_robot" >
 
 
-
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <legacyModeNS>false</legacyModeNS>
+            <robotNamespace>/weeding_robot</robotNamespace>
+        </plugin>
+    </gazebo>
 
     <gazebo>
         <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
             <legacyMode>false</legacyMode>
             <alwaysOn>true</alwaysOn>
-            <publishWheelTF>true</publishWheelTF>
+            <publishWheelTF>false</publishWheelTF>
             <publishTf>1</publishTf>
             <publishWheelJointState>true</publishWheelJointState>
             <updateRate>100.0</updateRate>
@@ -21,7 +26,7 @@
             <commandTopic>/weeding_robot/cmd_vel</commandTopic>
             <odometryTopic>odom</odometryTopic>
             <odometryFrame>odom</odometryFrame>
-            <robotBaseFrame>base_link</robotBaseFrame>
+            <robotBaseFrame>base_footprint</robotBaseFrame>
         </plugin>
     </gazebo>
 
