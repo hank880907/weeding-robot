@@ -9,8 +9,11 @@
             <legacyMode>false</legacyMode>
             <alwaysOn>true</alwaysOn>
             <publishWheelTF>true</publishWheelTF>
+            <wheelTorque>5</wheelTorque>
+            <odometrySource>world</odometrySource>
             <publishTf>1</publishTf>
             <publishWheelJointState>true</publishWheelJointState>
+            <publishOdomTF>true</publishOdomTF>
             <updateRate>100.0</updateRate>
             <leftJoint>left_wheel_joint</leftJoint>
             <rightJoint>right_wheel_joint</rightJoint>
@@ -21,7 +24,8 @@
             <commandTopic>/weeding_robot/cmd_vel</commandTopic>
             <odometryTopic>odom</odometryTopic>
             <odometryFrame>odom</odometryFrame>
-            <robotBaseFrame>base_footprint</robotBaseFrame>
+            <robotBaseFrame>base_link</robotBaseFrame>
+            <rosDebugLevel>na</rosDebugLevel>
         </plugin>
     </gazebo>
 

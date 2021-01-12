@@ -11,7 +11,7 @@ base_link_frame: base_footprint
 world_frame: map
 map_frame: map
 
-odom0: /weeding_robot/base_controller/odom
+odom0: /odom
 odom0_config: [false, false, false,
                false, false, false,
                true, true, false,
@@ -27,7 +27,7 @@ imu0_config: [false, false, false,
               true, false, false]
 imu0_differential: false
 
-odom1: /gps/fix
+odom1: /odometry/gps
 odom1_config: [true, true, false,
                false, false, false,
                false, false, false,
