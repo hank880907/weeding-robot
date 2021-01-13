@@ -24,7 +24,7 @@
             <commandTopic>/weeding_robot/cmd_vel</commandTopic>
             <odometryTopic>odom</odometryTopic>
             <odometryFrame>odom</odometryFrame>
-            <robotBaseFrame>base_link</robotBaseFrame>
+            <robotBaseFrame>base_footprint</robotBaseFrame>
             <rosDebugLevel>na</rosDebugLevel>
         </plugin>
     </gazebo>
@@ -49,6 +49,7 @@
             <alwaysOn>1</alwaysOn>
             <updateRate>10.0</updateRate>
             <bodyName>base_footprint</bodyName>
+            <frameId>base_footprint</frameId>
             <topicName>gps/fix</topicName>
             <velocityTopicName>gps/fix_velocity</velocityTopicName>
             <drift>5.0 5.0 5.0</drift>
