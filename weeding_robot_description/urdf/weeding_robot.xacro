@@ -23,7 +23,7 @@
     <joint name="base_joint" type="fixed">
         <parent link="base_footprint"/>
         <child link="base_link"/>
-        <origin xyz="0.0 0.0 0.150" rpy="0 0 -1.57"/>
+        <origin xyz="0.0 0.0 0.150" rpy="0 0 0"/>
     </joint>
 
     <link name="base_link">
@@ -34,14 +34,14 @@
         </inertial>
 
         <collision>
-            <origin rpy="1.57 0 0" xyz="-0.5 0.345 0"/>
+            <origin rpy="1.57 0 -1.57" xyz="0.345 0.5 0"/>
             <geometry>
                 <mesh filename="package://weeding_robot_description/models/BodycollisionBox.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
 
         <visual>
-            <origin rpy="1.57 0 0" xyz="-0.585 0.345 -0.082"/>
+            <origin rpy="1.57 0 -1.57" xyz="0.345 0.585  -0.082"/>
             <geometry>
                 <mesh filename="package://weeding_robot_description/models/WeedingRobotBodyV3.STL" scale="0.001 0.001 0.001"/>
             </geometry>
@@ -79,7 +79,7 @@
     <joint name="left_wheel_joint" type="continuous">
     	<parent link="base_link"/>
     	<child link="left_wheel"/>
-        <origin xyz="-0.572 0.195 -0.03" rpy="0 3.14 0"/>
+        <origin xyz="0.195 0.572 -0.03" rpy="0 3.14 -1.57"/>
         <axis xyz="1 0 0"/>
 	</joint>
 
@@ -122,7 +122,7 @@
     <joint name="right_wheel_joint" type="continuous">
     	<parent link="base_link"/>
     	<child link="right_wheel"/>
-        <origin xyz="0.572 0.195 -0.03" rpy="0 3.14 0"/>
+        <origin xyz="0.195 -0.572 -0.03" rpy="0 3.14 -1.57"/>
         <axis xyz="1 0 0"/>
 	</joint>
 
@@ -165,7 +165,7 @@
     <joint name="back_wheel_joint" type="fixed">
     	<parent link="base_link"/>
     	<child link="back_wheel"/>
-        <origin xyz="0 -0.63 -0.085" rpy="0 0 0"/>
+        <origin xyz="-0.63 0 -0.085" rpy="0 0 -1.57"/>
         <axis xyz="1 0 0"/>
 	</joint>
 

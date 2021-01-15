@@ -83,6 +83,8 @@ The parameter of the weel radius changed for some reason and effect the calculat
 
 - the odom transform is not right in RVIZ (can observe wired behavior visually). Probably is the dynamic reconfiguration stuff.
 - map was not transformed correctly to odom. It would drift.
+- /odometry/gps topic is strange
+- robot oscillate when turning
 
 
 # Credit #
