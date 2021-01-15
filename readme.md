@@ -1,3 +1,5 @@
+branch: master
+
 # Overview #
 
 Given the gps waypoint, the weeding robot need to do path planning and pass all the waypoint sequentially.
@@ -49,6 +51,38 @@ VS code are recommended IDE. It has a ROS plugin that you can install to make yo
 
 - measure the accurate data of the robot (e.g. mass, inertias) and update the URDF files. Approximated value was used currently.
 - computer vision system
+
+# Known Issues #
+
+## In Gazebo console ##
+
+When launching simulation, Gazebo console would split out these errors:
+
+    [ERROR] [1610580158.129776098, 7.830000000]: No p gain specified for pid.  Namespace: /weeding_robot/gazebo_ros_control/pid_gains/left_wheel_joint
+    [ERROR] [1610580158.130951789, 7.830000000]: No p gain specified for pid.  Namespace: /weeding_robot/gazebo_ros_control/pid_gains/right_wheel_joint
+
+and a warn:
+
+    [ WARN] [1610580158.284234677, 7.916000000]: updateConfig() called on a dynamic_reconfigure::Server that provides its own mutex. This can lead to deadlocks if updateConfig() is called during an update. Providing a mutex to the constructor is highly recommended in this case. Please forward this message to the node author.
+
+The parameter of the weel radius changed for some reason and effect the calculation of odom.(correct diameter is 0.34 m.)
+
+    [ INFO] [1610580158.289672311, 7.921000000]: Dynamic Reconfigure:
+                        DynamicParams:
+                            Odometry parameters:
+                                left wheel radius: 1
+                                right wheel radius: 1
+                                wheel separation: 1.1
+                            Publication parameters:
+                                Publish executed velocity command: 0
+                                Publication rate: 50
+                                Publish frame odom on tf: 1
+
+
+## RVIZ ##
+
+- the odom transform is not right in RVIZ (can observe wired behavior visually). Probably is the dynamic reconfiguration stuff.
+- map was not transformed correctly to odom. It would drift.
 
 
 # Credit #
