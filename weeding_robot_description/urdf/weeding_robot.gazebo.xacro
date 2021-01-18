@@ -33,9 +33,9 @@
             <topicName>gps/fix</topicName>
             <velocityTopicName>gps/fix_velocity</velocityTopicName>
             <drift>0 0 0</drift>
-            <gaussianNoise>0.1 0.1 0.1</gaussianNoise>
+            <gaussianNoise>0 0 0</gaussianNoise>
             <velocityDrift>0 0 0</velocityDrift>
-            <velocityGaussianNoise>0.1 0.1 0.1</velocityGaussianNoise>
+            <velocityGaussianNoise>0 0 0</velocityGaussianNoise>
         </plugin>
     </gazebo>
 
