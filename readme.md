@@ -30,6 +30,45 @@ for example, robot_localization package can be installed by:
 VS code are recommended IDE. It has a ROS plugin that you can install to make your life easier.
 
 
+# Launching programs #
+
+This section details the process to launch the programs.
+
+
+## Simulation in gazebo ##
+In terminal #1:
+
+    $ roscore
+
+Termianl #2:
+
+    $ rosrun gazebo_ros gazebo
+
+Terminal #3:
+
+    $ roslaunch weeding_robot_description start_weeding_robot.launch
+
+Now you shoud be able to see the weeding robot in the gazebo window.
+
+
+For teleoperation:
+
+    $ roslaunch weeding_robot_description teleop.launch
+
+## Delete robot in gazebo simulation ##
+
+you must delet the robot and respawn it after you change the configuration in the urdf file.
+
+To delete the robot:
+
+    $ rosrun weeding_robot_description delete_weeding_robot.py
+
+
+## Launch navigation node (this node is not complete yet) ##
+For launching navigation node:
+
+    $ roslaunch weeding_robot_navigation start_navigation_with_gps_ekf.launch
+
 # Progess tracking #
 
 ## Done ##
@@ -56,12 +95,7 @@ VS code are recommended IDE. It has a ROS plugin that you can install to make yo
 
 ## In Gazebo console ##
 
-When launching simulation, Gazebo console would split out these errors:
-
-    [ERROR] [1610580158.129776098, 7.830000000]: No p gain specified for pid.  Namespace: /weeding_robot/gazebo_ros_control/pid_gains/left_wheel_joint
-    [ERROR] [1610580158.130951789, 7.830000000]: No p gain specified for pid.  Namespace: /weeding_robot/gazebo_ros_control/pid_gains/right_wheel_joint
-
-and a warn:
+When launching simulation, Gazebo console would split out a warn:
 
     [ WARN] [1610580158.284234677, 7.916000000]: updateConfig() called on a dynamic_reconfigure::Server that provides its own mutex. This can lead to deadlocks if updateConfig() is called during an update. Providing a mutex to the constructor is highly recommended in this case. Please forward this message to the node author.
 
