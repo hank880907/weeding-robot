@@ -21,11 +21,11 @@ Clone this repository to the catkin workspace src folder and install the necessa
 
 the packages can be install by:
 
-    sudo apt-get ros-kinetic-PACKAGE-NAME
+    $ sudo apt-get ros-kinetic-PACKAGE-NAME
 
 for example, robot_localization package can be installed by:
 
-    sudo apt-get ros-kinetic-robot-localization
+    $ sudo apt-get ros-kinetic-robot-localization
 
 VS code are recommended IDE. It has a ROS plugin that you can install to make your life easier.
 
@@ -73,17 +73,19 @@ For launching navigation node:
 
 ## Done ##
 
-- weeding robot simulation
+- weeding robot physics simulation
 - ros controller interface
+- hardware construcations
 
 
 ## TODO ##
 
 - hardware interfacing
 - remote controller
-- robot navigation
-- microcontrollers programs
-- hardware construcations
+- fix issue in navigation
+- ROS arduino bridge
+- Test PWM control of the roboteq controller
+
 
 
 ## Optional task to perfect the system ##
@@ -113,12 +115,32 @@ The parameter of the weel radius changed for some reason and effect the calculat
                                 Publish frame odom on tf: 1
 
 
+## Differential drive controller ##
+
+the differential drive controller does not gives accurate odometery. This maybe caused by the issue mentioned above.
+
 ## RVIZ ##
 
 - the odom transform is not right in RVIZ (can observe wired behavior visually). Probably is the dynamic reconfiguration stuff.
 - map was not transformed correctly to odom. It would drift.
 - /odometry/gps topic is strange
-- robot oscillate when turning
+
+
+## robot localization ##
+
+I am thinking of two way of using the ekf localization node.
+
+1. use two ekf node, one for publishing odometry TF and another for publishing TF from map to odom. the ekf node would publish a topic
+called /odometry/filtered. Should two ekf node publish on the same topic?
+
+
+2. Use one ekf node. The odometry will be handled by the diff_drive_controller and the TF from map to odom would be handled by ekf node.
+the issue of this method is that the odometry published by the diff_drive_controller is not accurate (actually, terrible as hell)
+
+## Hardware interfaceing ##
+
+How to connect the real motor controller to the ROS system? Does it has something to do with the "transmission interface?"
+Currently, I am looking for using the arduino_ros_bridge to accomplish this.
 
 
 # Credit #

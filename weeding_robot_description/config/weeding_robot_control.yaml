@@ -20,7 +20,7 @@ weeding_robot:
       wheel_separation : 1.1
       wheel_radius : 0.17
 
-      enable_odom_tf: false
+      #enable_odom_tf: true
 
       # Wheel separation and radius multipliers
       wheel_separation_multiplier: 1.0 # default: 1.0
@@ -54,6 +54,10 @@ weeding_robot:
           max_jerk               : 2.5  # rad/s^3
 
     
+    # the base controller would output velocity commend to the wheel joint.
+    # So the controller do not have pid gain its self. the pid controller is
+    # done on the actual motor controller.
+    # this gazebo gain is the gain that simulate the actual motor controller.
     gazebo_ros_control:
       pid_gains:
         left_wheel_joint: {p: 1.0, i: 1.0, d: 0.0}
