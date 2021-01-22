@@ -143,6 +143,31 @@ How to connect the real motor controller to the ROS system? Does it has somethin
 Currently, I am looking for using the arduino_ros_bridge to accomplish this.
 
 
+# Hardware #
+
+## encoder ##
+
+
+
+## PINs ##
+This is the pin configuration for the arduino Mega
+
+- left motor: 8
+- left encoder A and B: 2,3
+
+- right motor: 9
+- right encoder A and B: 18, 19
+
+motor driver:
+
+channel 1: Left
+channel 2: right
+
+## problems ##
+
+the current set up is not ideal, because the encoder interrupt would cause the software timing in Arduino become inaccurate.
+The ideal solution would be not connect the encoder directly to the arduino.
+
 # Credit #
 
 author: Hank Wu (jhw83@uclive.ac.nz)
