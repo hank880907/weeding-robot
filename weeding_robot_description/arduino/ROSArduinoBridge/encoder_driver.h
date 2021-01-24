@@ -18,7 +18,7 @@
   #define LEFT_ENC_PIN_A 3
   #define LEFT_ENC_PIN_B 2
   
-  //below can be changed, but should be PORTC pins
+  //below can be changed, but should be interruptable pins
   #define RIGHT_ENC_PIN_A 19
   #define RIGHT_ENC_PIN_B 18
 

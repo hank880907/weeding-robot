@@ -15,7 +15,7 @@ typedef struct {
   * Using previous input (PrevInput) instead of PrevError to avoid derivative kick,
   * see http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/
   */
-  int PrevInput;                // last input
+  double PrevInput;                // last input
   //int PrevErr;                   // last error
 
   /*
@@ -26,17 +26,17 @@ typedef struct {
   //int Ierror;
   int ITerm;                    //integrated term
 
-  long output;                    // last motor setting
+  double output;                    // last motor setting
 }
 SetPointInfo;
 
 SetPointInfo leftPID, rightPID;
 
 /* PID Parameters */
-int Kp = 50;
-int Kd = 5;
-int Ki = 0;
-int Ko = 50;
+int Kp = 100;
+int Kd = 30;
+int Ki = 1;
+int Ko = 20;
 
 unsigned char moving = 0; // is the base in motion?
 
@@ -66,14 +66,14 @@ void resetPID(){
 
 /* PID routine to compute the next motor commands */
 void doPID(SetPointInfo * p) {
-  long Perror;
-  long output;
-  int input;
+  double Perror;
+  double output;
+  double input;
 
   //Perror = p->TargetTicksPerFrame - (p->Encoder - p->PrevEnc);
   input = p->Encoder - p->PrevEnc;
   Perror = p->TargetTicksPerFrame - input;
-  Serial.println(Perror);
+
 
 
   /*
@@ -101,6 +101,7 @@ void doPID(SetPointInfo * p) {
 
   p->output = output;
   p->PrevInput = input;
+  
 }
 
 /* Read the encoder values and call the PID routine */

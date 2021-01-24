@@ -47,22 +47,24 @@
 
 #define USE_BASE      // Enable the base controller code
 //#undef USE_BASE     // Disable the base controller code
+//#define WEEDING_ROBOT // Enable the weeding robot code.
 
 /* Define the motor controller and encoder library you are using */
 #ifdef USE_BASE
    /* motor driver */ 
-   #define SABERTOOTH_2X12
-
 
    /* The RoboGaia encoder shield */
    //#define ROBOGAIA
    
    /* Encoders directly attached to Arduino board */
    //#define ARDUINO_ENC_COUNTER
-   #define MEGA_ENC_COUNTER
-
    /* L298 Motor driver*/
    //#define L298_MOTOR_DRIVER
+   #define SABERTOOTH_2X12
+   #define MEGA_ENC_COUNTER
+#elif defined WEEDING_ROBOT
+   #define SABERTOOTH_2X12
+   #define MEGA_ENC_COUNTER
 #endif
 
 #define USE_SERVOS  // Enable use of PWM servos as defined in servos.h
@@ -214,8 +216,8 @@ int runCommand() {
       moving = 0;
     }
     else moving = 1;
-    leftPID.TargetTicksPerFrame = arg1;
-    rightPID.TargetTicksPerFrame = arg2;
+    leftPID.TargetTicksPerFrame = arg1/(double)PID_RATE;
+    rightPID.TargetTicksPerFrame = arg2/(double)PID_RATE;
     Serial.println("OK"); 
     break;
   case UPDATE_PID:
