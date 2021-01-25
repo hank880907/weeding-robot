@@ -24,11 +24,11 @@ gear_reduction: 1.0
 motors_reversed: false
 
 # === PID parameters
-Kp: 10
-Kd: 12
-Ki: 0
-Ko: 50
-accel_limit: 1.0
+Kp: 100
+Kd: 30
+Ki: 1
+Ko: 20
+accel_limit: 10.0
 
 # === Sensor definitions.  Examples only - edit for your robot.
 #     Sensor type can be one of the follow (case sensitive!):

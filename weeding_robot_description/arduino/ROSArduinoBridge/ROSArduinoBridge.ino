@@ -136,8 +136,8 @@ char argv1[16];
 char argv2[16];
 
 // The arguments converted to integers
-long arg1;
-long arg2;
+double arg1;
+double arg2;
 
 /* Clear the current command parameters */
 void resetCommand() {
@@ -155,9 +155,9 @@ int runCommand() {
   int i = 0;
   char *p = argv1;
   char *str;
-  int pid_args[4];
-  arg1 = atoi(argv1);
-  arg2 = atoi(argv2);
+  double pid_args[4];
+  arg1 = atof(argv1);
+  arg2 = atof(argv2);
   
   switch(cmd) {
   case GET_BAUDRATE:
@@ -188,11 +188,11 @@ int runCommand() {
     break;
 #ifdef USE_SERVOS
   case SERVO_WRITE:
-    servos[arg1].setTargetPosition(arg2);
+    servos[(int)arg1].setTargetPosition(arg2);
     Serial.println("OK");
     break;
   case SERVO_READ:
-    Serial.println(servos[arg1].getServo().read());
+    Serial.println(servos[(int)arg1].getServo().read());
     break;
 #endif
     
@@ -216,8 +216,8 @@ int runCommand() {
       moving = 0;
     }
     else moving = 1;
-    leftPID.TargetTicksPerFrame = arg1/(double)PID_RATE;
-    rightPID.TargetTicksPerFrame = arg2/(double)PID_RATE;
+    leftPID.TargetTicksPerFrame = arg1;
+    rightPID.TargetTicksPerFrame = arg2;
     Serial.println("OK"); 
     break;
   case UPDATE_PID:
