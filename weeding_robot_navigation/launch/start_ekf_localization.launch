@@ -2,7 +2,7 @@
 
     <!-- Run the EKF Localization node -->
     <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
-        <rosparam command="load" file="$(find my_sumit_xl_tools)/config/ekf_localization.yaml"/>
+        <rosparam command="load" file="$(find weeding_robot_navigation)/config/ekf_localization.yaml"/>
     </node>
 
 </launch>
