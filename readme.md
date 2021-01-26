@@ -152,10 +152,10 @@ Currently, I am looking for using the arduino_ros_bridge to accomplish this.
 ## PINs ##
 This is the pin configuration for the arduino Mega
 
-- left motor: 8
-- left encoder A and B: 2,3
+- left motor: 10
+- left encoder A and B: 20,21
 
-- right motor: 9
+- right motor: 11
 - right encoder A and B: 18, 19
 
 motor driver:

@@ -11,8 +11,8 @@
   #define LEFT_MOTOR_ENABLE 13
 
 #elif defined SABERTOOTH_2X12
-  #define LEFT_MOTOR_PIN 8
-  #define RIGHT_MOTOR_PIN 9
+  #define LEFT_MOTOR_PIN 10
+  #define RIGHT_MOTOR_PIN 11
 #endif
 
 void initMotorController();

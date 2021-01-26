@@ -72,6 +72,7 @@
 #elif defined MEGA_ENC_COUNTER 
 
   #include <Encoder.h>
+  #define ENCODER_USE_INTERRUPTS
   Encoder Left_enc(LEFT_ENC_PIN_A, LEFT_ENC_PIN_B);
   Encoder Right_enc(RIGHT_ENC_PIN_A, RIGHT_ENC_PIN_B);
  
