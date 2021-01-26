@@ -1,6 +1,6 @@
 <launch>
     <rosparam file="$(find weeding_robot_description)/config/weeding_robot_control.yaml" command="load"/>
-    <param name="robot_description" command="$(find xacro)/xacro.py $(find weeding_robot_description)/urdf/weeding_robot.xacro" />
+    <param name="robot_description" command="$(find xacro)/xacro.py $(find weeding_robot_description)/urdf/weeding_robot_simple.xacro" />
 
     <!--node name="controller_manager" pkg="controller_manager" type="controller_manager" respawn="false"
     output="screen" ns="/weeding_robot" args="spawn base_controller joint_state_controller"/-->

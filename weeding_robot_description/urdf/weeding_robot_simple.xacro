@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <robot name="weeding_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
-<xacro:include filename="$(find weeding_robot_description)/urdf/weeding_robot.gazebo.xacro" />
 
     <material name="grey">
         <color rgba="0.75 0.75 0.75 1"/>
@@ -76,23 +75,12 @@
         </visual>
     </link>
 
-    <joint name="left_wheel_joint" type="continuous">
+    <joint name="left_wheel_joint" type="fixed">
     	<parent link="base_link"/>
     	<child link="left_wheel"/>
         <origin xyz="0.195 0.572 -0.03" rpy="0 3.14 -1.57"/>
         <axis xyz="1 0 0"/>
 	</joint>
-
-    <transmission name="left_wheel_tran">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="left_wheel_joint">
-            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="left_motor">
-            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
-    </transmission>
 
     <link name="right_wheel">
         <inertial>
@@ -119,23 +107,12 @@
         </visual>
     </link>
 
-    <joint name="right_wheel_joint" type="continuous">
+    <joint name="right_wheel_joint" type="fixed">
     	<parent link="base_link"/>
     	<child link="right_wheel"/>
         <origin xyz="0.195 -0.572 -0.03" rpy="0 3.14 -1.57"/>
         <axis xyz="1 0 0"/>
 	</joint>
-
-    <transmission name="right_wheel_tran">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="right_wheel_joint">
-            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="right_motor">
-            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
-    </transmission>
 
     <link name="back_wheel">
         <inertial>
