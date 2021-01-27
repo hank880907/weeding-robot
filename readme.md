@@ -21,6 +21,13 @@ Development computer: Ubuntu 16.04
 
 On board computer: Raspberry pi with [ubiquty robotics image](https://downloads.ubiquityrobotics.com/pi.html "Ubiquity Robotics Downloads page")
 
+user name: ubuntu
+
+Passward: ubuntu
+
+Wifi ap password: robotseverywhere
+
+
 
 ## Clone repository ##
 
@@ -122,6 +129,19 @@ To teleop, use this commend on either ubiquityrobot.local terminal or your local
 
 
 # Hardware #
+
+## 9DoF Razor IMU ##
+Documentation can be found [here](https://learn.sparkfun.com/tutorials/9dof-razor-imu-m0-hookup-guide)
+
+[This](http://wiki.ros.org/razor_imu_9dof) ROS package was used to interface with the system.
+
+Note that when installing the SparkFun Board library in [Arduino IDE](https://www.arduino.cc/en/software), install this library *first*
+
+![arduino samd library](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/raw/master/weeding_robot_description/pictures/Arduino_SAMD.png)
+
+And then install the SparkFun IMU board library.
+
+![SparkFun IMU library](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/raw/master/weeding_robot_description/pictures/SarkFun_ASMD.png)
 
 ## Encoder cable ##
 
@@ -247,3 +267,5 @@ Currently, I am looking for using the arduino_ros_bridge to accomplish this.
 # Credit #
 
 author: Hank Wu (jhw83@uclive.ac.nz)
+
+Supervisor: Mark Jermy (mark.jermy@canterbury.ac.nz)
