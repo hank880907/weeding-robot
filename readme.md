@@ -62,7 +62,7 @@ After install the required packages, build the work space by:
 
 ## IDE ##
 
-VS code are recommended IDE. It has a ROS plugin that you can install to make your life easier.
+[VS code](https://code.visualstudio.com/) is recommended IDE. It has a [ROS plugin](https://marketplace.visualstudio.com/items?itemName=ms-iot.vscode-ros) that you can install to make your life easier.
 
 
 # Launching programs #
@@ -110,6 +110,12 @@ ssh to the raspberry by (assumming you are using the ubiquty robot image, which 
     $ ssh ubuntu@ubiquityrobot.local
 
 Enter password: ubuntu
+
+    $ roslaunch weeding_robot_description bringup.launch
+
+To teleop, use this commend on either ubiquityrobot.local terminal or your local computer terminal.
+
+    $ to do
 
 
 
