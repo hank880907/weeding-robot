@@ -69,29 +69,7 @@ For launching navigation node:
 
     $ roslaunch weeding_robot_navigation start_navigation_with_gps_ekf.launch
 
-# Progess tracking #
 
-## Done ##
-
-- weeding robot physics simulation
-- ros controller interface
-- hardware construcations
-
-
-## TODO ##
-
-- hardware interfacing
-- remote controller
-- fix issue in navigation
-- ROS arduino bridge
-- Test PWM control of the roboteq controller
-
-
-
-## Optional task to perfect the system ##
-
-- measure the accurate data of the robot (e.g. mass, inertias) and update the URDF files. Approximated value was used currently.
-- computer vision system
 
 # Known Issues #
 
@@ -149,8 +127,9 @@ Currently, I am looking for using the arduino_ros_bridge to accomplish this.
 
 
 
-## PINs ##
-This is the pin configuration for the arduino Mega
+## Ardunio Mega PINs ##
+This is the pin configuration for the arduino Mega. Note that the encoder pin needs to be interruptable pins. Although pin 2, 3 is documented as interruptable pins
+, but it does not work. It is possibly due to confilct with PWM.
 
 - left motor: 10
 - left encoder A and B: 20,21
@@ -163,10 +142,52 @@ motor driver:
 channel 1: Left
 channel 2: right
 
+## WARNING ##
+
+The encoders MUST be connected before turn the system on. Otherwise real shit would happend. Check the connection before turn the system on.
+Needs to implement a mechanism to detect whereif the encoder has failed or disconnected.
+
+
+The encoders and motor control cable needs to be connect in the right way. i.e. right encoder and the right motor control cable to the right motor, and vice versa. Fool proof connecter need to be design in the later
+stages.
+
+
+Make sure the bettary or power supply is connected the right way to the motor driver. Reverse polarity would cause short circuit which might lead to fire.
+
+
 ## problems ##
 
-the current set up is not ideal, because the encoder interrupt would cause the software timing in Arduino become inaccurate.
+the current set up is not ideal, because the encoder interrupt would cause the software timing in Arduino become inaccurate, which might mess up the PID control.
 The ideal solution would be not connect the encoder directly to the arduino.
+
+
+
+# Progess tracking #
+
+## Done ##
+
+- weeding robot physics simulation
+- ros controller interface
+- hardware construcations
+- motor interfacing
+- encoder interfacing
+- ROS arduino bridge
+
+## TODO ##
+
+- remote controller
+- fix issue in navigation
+- Test PWM control of the roboteq controller
+- implement a mechnism to detect if the encoder is disconnected or failed.
+- Fool proof connectors.
+
+
+
+## Optional task to perfect the system ##
+
+- measure the accurate data of the robot (e.g. mass, inertias) and update the URDF files. Approximated value was used currently.
+- computer vision system
+
 
 # Credit #
 
