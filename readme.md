@@ -14,9 +14,13 @@ This project was implemented in ROS
 
 ## System Requirment ##
 
-Ubuntu 16.04
 
-ROS kinetic
+[ROS kinectic](http://wiki.ros.org/kinetic/Installation/Ubuntu "ROS kinetic install tutorial")
+
+Development computer: Ubuntu 16.04
+
+On board computer: Raspberry pi with [ubiquty robotics image](https://downloads.ubiquityrobotics.com/pi.html "Ubiquity Robotics Downloads page")
+
 
 ## Clone repository ##
 
@@ -45,7 +49,7 @@ for example, robot_localization package can be installed by:
 
 The packages needed:
 
-- robot_localiazetion
+- [robot_localiazetion](http://docs.ros.org/en/melodic/api/robot_localization/html/index.html "Robot Localization Documentation")
 - gazebo
 
 
@@ -99,6 +103,14 @@ To delete the robot:
 For launching navigation node:
 
     $ roslaunch weeding_robot_navigation start_navigation_with_gps_ekf.launch
+
+## Launch program on the real robot (on raspberry pi) ##
+ssh to the raspberry by (assumming you are using the ubiquty robot image, which can be found [here](https://downloads.ubiquityrobotics.com/pi.html "Ubiquity Robotics Downloads page")):
+
+    $ ssh ubuntu@ubiquityrobot.local
+
+Enter password: ubuntu
+
 
 
 
@@ -154,7 +166,9 @@ Currently, I am looking for using the arduino_ros_bridge to accomplish this.
 
 # Hardware #
 
-## encoder ##
+## Encoder cable ##
+
+The encoder cable is connected in this order:
 ![encoder cable wiring](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/raw/master/weeding_robot_description/pictures/encoder_cable_wiring.png)
 
 
@@ -175,11 +189,11 @@ channel 2: right
 
 ## WARNING ##
 
-The encoders MUST be connected before turn the system on. Otherwise real shit would happend. Check the connection before turn the system on.
+The encoders *MUST* be connected before turn the system on. Otherwise real shit would happend. Check the connection before turn the system on.
 Needs to implement a mechanism to detect whereif the encoder has failed or disconnected.
 
 
-The encoders and motor control cable needs to be connect in the right way. i.e. right encoder and the right motor control cable to the right motor, and vice versa. Fool proof connecter need to be design in the later
+The encoders and motor control cable *MUST* be connect in the right way. i.e. right encoder and the right motor control cable to the right motor, and vice versa. Fool proof connecter need to be design in the later
 stages.
 
 
