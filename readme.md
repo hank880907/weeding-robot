@@ -155,7 +155,7 @@ Currently, I am looking for using the arduino_ros_bridge to accomplish this.
 # Hardware #
 
 ## encoder ##
-![encoder cable wiring](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/tree/master/weeding_robot_description/pictures/encoder_cable_wiring.png?raw=true)
+![encoder cable wiring](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/tree/master/weeding_robot_description/pictures/encoder_cable_wiring.png)
 
 
 ## Ardunio Mega PINs ##
