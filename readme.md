@@ -8,16 +8,32 @@ This is achieved by fusing the IMU, odometry, and differential GPS data.
 
 This project was implemented in ROS
 
-# System Requirment #
+
+
+# Installation #
+
+## System Requirment ##
 
 Ubuntu 16.04
 
 ROS kinetic
 
-# Installation #
+## Clone repository ##
+
 This is the workspace of the weeding robot project. So first, you need to have a catkin workspace. See ROS website for more informantion.
 
-Clone this repository to the catkin workspace src folder and install the necessary packages.
+Clone this repository to the catkin workspace src folder. If you don't have a catkin workspace, just create a folder called catkin_ws.
+
+    $ mkdir catkin_ws
+
+To clone the repository
+
+    $ cd ~/catkin_ws/
+    $ git clone https://eng-git.canterbury.ac.nz/jhw83/weeding-robot.git
+
+and change the folder name from weeding-robot to src.
+
+## install the necessary packages  ##
 
 the packages can be install by:
 
@@ -26,6 +42,21 @@ the packages can be install by:
 for example, robot_localization package can be installed by:
 
     $ sudo apt-get ros-kinetic-robot-localization
+
+The packages needed:
+
+- robot_localiazetion
+- gazebo
+
+
+## build workspace ##
+After install the required packages, build the work space by:
+
+    $ cd ~/catkin_ws/
+    $ catkin_make
+
+
+## IDE ##
 
 VS code are recommended IDE. It has a ROS plugin that you can install to make your life easier.
 
@@ -124,7 +155,7 @@ Currently, I am looking for using the arduino_ros_bridge to accomplish this.
 # Hardware #
 
 ## encoder ##
-
+![encoder cable wiring](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/tree/master/weeding_robot_description/pictures/encoder_cable_wiring.png?raw=true)
 
 
 ## Ardunio Mega PINs ##
