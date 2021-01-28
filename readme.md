@@ -131,11 +131,12 @@ To teleop, use this commend on either ubiquityrobot.local terminal or your local
 # Hardware #
 
 ## 9DoF Razor IMU ##
-Documentation can be found [here](https://learn.sparkfun.com/tutorials/9dof-razor-imu-m0-hookup-guide)
+
+Please read the documentation for the [9DoF Razor IMU](https://learn.sparkfun.com/tutorials/9dof-razor-imu-m0-hookup-guide) first.
 
 [This](http://wiki.ros.org/razor_imu_9dof) ROS package was used to interface with the system.
 
-Note that when installing the SparkFun Board library in [Arduino IDE](https://www.arduino.cc/en/software), install this library *first*
+Note that when installing the SparkFun Board library in [Arduino IDE](https://www.arduino.cc/en/software), install this library *first*, and make sure you choose the version *1.8.1*
 
 ![arduino samd library](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/raw/master/weeding_robot_description/pictures/Arduino_SAMD.png)
 
