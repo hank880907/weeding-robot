@@ -166,10 +166,13 @@ This is the pin configuration for the arduino Mega. Note that the encoder pin ne
 - right motor: 11
 - right encoder A and B: 18, 19
 
-motor driver:
 
-channel 1: Left
-channel 2: right
+motor driver (currently are using the motor driver from robocup. Not applicable if change to the roboteq motor controller.):
+
+- channel 1: Left
+- channel 2: right
+
+![Motor driver](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/raw/master/weeding_robot_description/pictures/Motor_Driver.png)
 
 ## WARNING ##
 
