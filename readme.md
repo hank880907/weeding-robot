@@ -8,6 +8,8 @@ This is achieved by fusing the IMU, odometry, and differential GPS data.
 
 This project was implemented in ROS
 
+## Software Structure ##
+
 
 
 # Installation #
@@ -134,7 +136,7 @@ To teleop, use this commend on either ubiquityrobot.local terminal or your local
 
 Please read the documentation for the [9DoF Razor IMU](https://learn.sparkfun.com/tutorials/9dof-razor-imu-m0-hookup-guide) first.
 
-[This](http://wiki.ros.org/razor_imu_9dof) ROS package was used to interface with the system.
+[razor_imu_9dof](http://wiki.ros.org/razor_imu_9dof) ROS package was used to interface with the system. This package is install in this repository, so do not need to install seperately.
 
 Note that when installing the SparkFun Board library in [Arduino IDE](https://www.arduino.cc/en/software), install this library *first*, and make sure you choose the version *1.8.1*
 
@@ -143,6 +145,10 @@ Note that when installing the SparkFun Board library in [Arduino IDE](https://ww
 And then install the SparkFun IMU board library.
 
 ![SparkFun IMU library](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/raw/master/weeding_robot_description/pictures/SarkFun_ASMD.png)
+
+Megnetometer calibration:
+
+![Megnetometer calibration](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/raw/master/weeding_robot_description/pictures/Magnetometer_calibration.png)
 
 ## Encoder cable ##
 
@@ -243,7 +249,9 @@ Currently, I am looking for using the arduino_ros_bridge to accomplish this.
 
 - weeding robot physics simulation
 - ros controller interface
-- hardware construcations
+- encoder housing
+- belt drive system
+- base frame modification
 - motor interfacing
 - encoder interfacing
 - ROS arduino bridge
