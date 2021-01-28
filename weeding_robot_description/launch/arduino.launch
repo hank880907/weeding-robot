@@ -1,6 +1,7 @@
 <launch>
    <node name="arduino" pkg="ros_arduino_python" type="arduino_node.py" output="screen">
       <rosparam file="$(find weeding_robot_description)/config/arduino_params.yaml" command="load" />
-      <remap from="/odom" to="/weeding_robot/base_controller/cmd_vel" />
+      <remap from="/cmd_vel" to="/weeding_robot/base_controller/cmd_vel" />
+      <remap from="/odom" to="/weeding_robot/base_controller/odom" />
    </node>
 </launch>
