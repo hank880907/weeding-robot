@@ -9,8 +9,8 @@ This is achieved by fusing the IMU, odometry, and differential GPS data.
 This project was implemented in ROS
 
 ## Software Structure ##
-
-
+The software has structure illustrated as below:
+![Software structure](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/raw/master/weeding_robot_description/pictures/Software_structure.svg)
 
 # Installation #
 
@@ -146,7 +146,7 @@ And then install the SparkFun IMU board library.
 
 ![SparkFun IMU library](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/raw/master/weeding_robot_description/pictures/SarkFun_ASMD.png)
 
-Megnetometer calibration:
+Megnetometer calibration (I put this picture here because I feel it is a cool picture.):
 
 ![Megnetometer calibration](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/raw/master/weeding_robot_description/pictures/Magnetometer_calibration.png)
 
@@ -267,6 +267,7 @@ Currently, I am looking for using the arduino_ros_bridge to accomplish this.
 - implement a mechnism to detect if the encoder is disconnected or failed.
 - Fool proof connectors.
 - motor cover laser cut
+- add all the process (program need to launch) to the systemd of raspberry pi. so it will launch everything on boot.
 
 
 
