@@ -31,6 +31,10 @@ Passward: ubuntu
 
 Wifi ap password: robotseverywhere
 
+To configure pijuice use
+
+    $ pijuice_cli
+
 
 
 ## Clone repository ##
