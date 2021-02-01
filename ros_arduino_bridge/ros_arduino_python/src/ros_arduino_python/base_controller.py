@@ -164,13 +164,13 @@ class BaseController:
             quaternion.w = cos(self.th / 2.0)
     
             # Create the odometry transform frame broadcaster.
-            self.odomBroadcaster.sendTransform(
+            '''self.odomBroadcaster.sendTransform(
                 (self.x, self.y, 0), 
                 (quaternion.x, quaternion.y, quaternion.z, quaternion.w),
                 rospy.Time.now(),
                 self.base_frame,
                 "odom"
-                )
+                )'''
     
             odom = Odometry()
             odom.header.frame_id = "odom"
