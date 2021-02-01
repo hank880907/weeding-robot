@@ -6,6 +6,7 @@
     <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization_with_gps"> 
     <!--remap from="/odometry/filtered" to="/odometry/filtered_with_gps"/-->
     <rosparam command="load" file="$(find weeding_robot_navigation)/config/robot_localization_with_gps.yaml" />
+    <remap from="/odometry/filtered" to="/odometry/global"/>
     </node>
 
     <!-- Run the map server -->
