@@ -10,7 +10,8 @@ This project was implemented in ROS
 
 ## Software Structure ##
 The software has structure illustrated as below:
-but currectly it is not working so the structure need to be revised.
+
+
 ![Software structure](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/raw/master/weeding_robot_description/pictures/Software_structure.svg)
 
 # Installation #
