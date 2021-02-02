@@ -15,6 +15,10 @@ The software has structure illustrated as below:
 
 Note that the software only works in simulation only currently.
 
+TF:
+
+![weeding robot tf](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/raw/master/weeding_robot_description/pictures/robot_tf.pdf)
+
 ## Hardware Structure ##
 
 The hardwares are connected as below:
@@ -227,7 +231,7 @@ The ideal solution would be not connect the encoder directly to the arduino.
 # Known Issues #
 
 ## In Gazebo simulation ##
-### Gazebo console ###
+### Gazebo console (this possibly has no effect on the simulation.)###
 
 When launching simulation, Gazebo console would split out a warn:
 
