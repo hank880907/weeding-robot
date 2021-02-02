@@ -17,7 +17,7 @@ Note that the software only works in simulation only currently.
 
 TF:
 
-![weeding robot tf](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/raw/master/weeding_robot_description/pictures/robot_tf.pdf)
+![weeding robot tf](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/raw/master/weeding_robot_description/pictures/robot_tf.svg)
 
 ## Hardware Structure ##
 
