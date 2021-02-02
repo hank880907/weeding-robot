@@ -11,8 +11,15 @@ This project was implemented in ROS
 ## Software Structure ##
 The software has structure illustrated as below:
 
-
 ![Software structure](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/raw/master/weeding_robot_description/pictures/Software_structure.svg)
+
+Note that the software only works in simulation only currently.
+
+## Hardware Structure ##
+
+The hardwares are connected as below:
+
+![hardware structure](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/raw/master/weeding_robot_description/pictures/hardware.svg)
 
 # Installation #
 
@@ -84,8 +91,22 @@ After install the required packages, build the work space by:
 
 This section details the process to launch the programs.
 
+First of all, you need to make sure it is pointing to the correct ROS master address.
+
+Easist way to configure it is through the ~/.bashrc file.
+
+If you are launching the simulation, the ROS master sould be pointing to the develop computer. For example,
+
+    export ROS_MASTER_URI=http://hank-NUC8i3BEH.local:11311
+
+If you want to bring up the robot, change the address to 
+
+    export ROS_MASTER_URI=http://ubiquityrobot.local:11311
+
 
 ## Simulation in gazebo ##
+
+
 In terminal #1:
 
     $ roscore
@@ -114,7 +135,7 @@ To delete the robot:
     $ rosrun weeding_robot_description delete_weeding_robot.py
 
 
-## Launch navigation node (this node is not complete yet) ##
+## Launch navigation node (this node only works in Gazebo, need to fix it on the real robot.) ##
 For launching navigation node:
 
     $ roslaunch weeding_robot_navigation start_navigation_with_gps_ekf.launch
@@ -128,9 +149,13 @@ Enter password: ubuntu
 
     $ roslaunch weeding_robot_description bringup.launch
 
+bringup.launch will connect to the IMU, Arduino and GPS module. Please make sure these devices are connceted.
+
+Note that the IMU would failed due to the noise from the motors. Need some circuit to isolate the motor and computers.
+
 To teleop, use this commend on either ubiquityrobot.local terminal or your local computer terminal.
 
-    $ to do
+    $ roslaunch weeding_robot_description teleop.launch
 
 
 
@@ -244,11 +269,15 @@ called /odometry/filtered. Should two ekf node publish on the same topic?
 2. Use one ekf node. The odometry will be handled by the diff_drive_controller and the TF from map to odom would be handled by ekf node.
 the issue of this method is that the odometry published by the diff_drive_controller is not accurate (actually, terrible as hell)
 
-### Hardware interfaceing ###
+## Hardware ##
 
-How to connect the real motor controller to the ROS system? Does it has something to do with the "transmission interface?"
-Currently, I am looking for using the arduino_ros_bridge to accomplish this.
+### IMU and Motor noise ###
 
+The IMU node would abort when the motor start moving. This is due to motors would induce noise to mess up IMU. Need to isolate the motor and computers.
+
+### IMU issue###
+
+The IMU does not looks right in the RVIZ.
 
 
 
@@ -263,12 +292,14 @@ Currently, I am looking for using the arduino_ros_bridge to accomplish this.
 - base frame modification
 - motor interfacing
 - encoder interfacing
+- IMU interfacting
+- GPS module interfacing
 - ROS arduino bridge
 
 ## TODO ##
 
 - remote controller for end users.
-- fix issue in navigation
+- fix issue in navigation of real robot.
 - Test PWM control of the roboteq controller( the roboteq controller is a much better motor controller, but it was broken. so this task depends on wether if we can get the controller.)
 - implement a mechnism to detect if the encoder is disconnected or failed.
 - Fool proof connectors.
