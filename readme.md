@@ -273,12 +273,13 @@ On real robot, the the yaw offset need to be found. when facing east, all headin
 
 ### IMU and Motor noise ###
 
-The IMU node would abort when the motor start moving. This is due to motors would induce noise to mess up IMU. Need to isolate the motor and computers.
+The IMU node would abort when the motor start moving. This might be the motors induceing noise to mess up IMU. Need to isolate the motor and computers.
+
+Update: The IMU cable was crappy. The cable was replaced and the reading is more robust. But the IMU would still freeze from time to time.
 
 ### IMU issue ###
 
 The IMU does not looks right in the RVIZ.
-
 
 
 # Progess tracking #
@@ -300,6 +301,7 @@ The IMU does not looks right in the RVIZ.
 
 - remote controller for end users.
 - fix issue in navigation of real robot.
+- fix IMU reading
 - Test PWM control of the roboteq controller( the roboteq controller is a much better motor controller, but it was broken. so this task depends on wether if we can get the controller.)
 - implement a mechnism to detect if the encoder is disconnected or failed.
 - Fool proof connectors.
