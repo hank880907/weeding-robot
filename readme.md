@@ -13,7 +13,7 @@ The software has structure illustrated as below:
 
 ![Software structure](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/raw/master/weeding_robot_description/pictures/Software_structure.svg)
 
-Note that the software only works in simulation only currently. The TF from odom to base_footprint was published by an ekf node. So the code for publishing TF in the ROS
+Note that the software only works in simulation only currently. The TF from odom to base_footprint was published by an ekf node. So the [code for publishing TF](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/blob/master/ros_arduino_bridge/ros_arduino_python/src/ros_arduino_python/base_controller.py#L167) in the ROS
 arduino bridge package was commented out.
 
 TF:
@@ -91,6 +91,10 @@ After install the required packages, build the work space by:
 
 [VS code](https://code.visualstudio.com/) is recommended IDE. It has a [ROS plugin](https://marketplace.visualstudio.com/items?itemName=ms-iot.vscode-ros) that you can install to make your life easier.
 
+
+## recommanded ROS learning method ##
+
+[This website](https://www.theconstructsim.com/robotigniteacademy_learnros/ros-courses-library/) offers comprehensive resource for learning ROS. 
 
 # Launching programs #
 

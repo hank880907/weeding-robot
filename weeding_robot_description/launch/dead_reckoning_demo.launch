@@ -1,0 +1,28 @@
+<launch>
+
+    <!-- this is a dead reckon demo. use rviz to command.-->
+    <rosparam file="$(find weeding_robot_description)/config/weeding_robot_control.yaml" command="load"/>
+    <param name="robot_description" command="$(find xacro)/xacro.py $(find weeding_robot_description)/urdf/weeding_robot_simple.xacro" />
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="/weeding_robot/joint_states" />
+    </node>
+
+    <include file="$(find weeding_robot_description)/launch/arduino.launch"/>
+
+    <node name="robot_localization_odom" pkg="robot_localization" type="ekf_localization_node">
+        <rosparam command="load" file="$(find weeding_robot_description)/config/weeding_robot_odom.yaml" />
+    </node>
+
+    <!-- Run the map server -->
+    <include file="$(find weeding_robot_navigation)/launch/start_map_server.launch" />
+
+    <!--- Run Move Base -->
+    <include file="$(find weeding_robot_navigation)/launch/move_base_map.launch" />
+
+    <node pkg="tf" type="static_transform_publisher" name="name_of_node" 
+          args="0 0 0 0 0 0 map odom 100">
+    </node>
+
+</launch>
