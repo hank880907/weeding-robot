@@ -231,55 +231,7 @@ The ideal solution would be not connect the encoder directly to the arduino.
 
 # Known Issues #
 
-## In Gazebo simulation ##
-### Gazebo console (this possibly has no effect on the simulation.) ###
-
-When launching simulation, Gazebo console would split out a warn:
-
-    [ WARN] [1610580158.284234677, 7.916000000]: updateConfig() called on a dynamic_reconfigure::Server that provides its own mutex. This can lead to deadlocks if updateConfig() is called during an update. Providing a mutex to the constructor is highly recommended in this case. Please forward this message to the node author.
-
-The parameter of the weel radius changed for some reason and effect the calculation of odom.(correct diameter is 0.34 m.)
-
-    [ INFO] [1610580158.289672311, 7.921000000]: Dynamic Reconfigure:
-                        DynamicParams:
-                            Odometry parameters:
-                                left wheel radius: 1
-                                right wheel radius: 1
-                                wheel separation: 1.1
-                            Publication parameters:
-                                Publish executed velocity command: 0
-                                Publication rate: 50
-                                Publish frame odom on tf: 1
-
-
-### Differential drive controller ###
-
-the differential drive controller does not gives accurate odometery. This maybe caused by the issue mentioned above.
-
-### RVIZ ###
-
-- the odom transform is not right in RVIZ (can observe wired behavior visually). Probably is the dynamic reconfiguration stuff.
-- map was not transformed correctly to odom. It would drift.
-- /odometry/gps topic is strange
-
-
-## On real robot ##
-
-### navsat node and IMU orientiation ###
-
-On real robot, the the yaw offset need to be found. when facing east, all heading data need to be zero.
-
-## Hardware ##
-
-### IMU and Motor noise ###
-
-The IMU node would abort when the motor start moving. This might be the motors induceing noise to mess up IMU. Need to isolate the motor and computers.
-
-Update: The IMU cable was crappy. The cable was replaced and the reading is more robust. But the IMU would still freeze from time to time.
-
-### IMU issue ###
-
-The IMU does not looks right in the RVIZ.
+please see [issue](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/issues) section in this repository
 
 
 # Progess tracking #
