@@ -14,7 +14,8 @@
             <!-- <robotNamespace></robotNamespace> -->
             <topicName>imu/data</topicName>
             <serviceName>imu/service</serviceName>
-            <bodyName>base_link</bodyName>
+            <bodyName>base_imu_link</bodyName>
+            <frameName>base_imu_link</frameName>
             <gaussianNoise>0</gaussianNoise>
             <rpyOffsets>0 0 0</rpyOffsets>
             <updateRate>30.0</updateRate>

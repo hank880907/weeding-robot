@@ -13,7 +13,8 @@ The software has structure illustrated as below:
 
 ![Software structure](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/raw/master/weeding_robot_description/pictures/Software_structure.svg)
 
-Note that the software only works in simulation only currently.
+Note that the software only works in simulation only currently. The TF from odom to base_footprint was published by an ekf node. So the code for publishing TF in the ROS
+arduino bridge package was commented out.
 
 TF:
 
@@ -231,7 +232,7 @@ The ideal solution would be not connect the encoder directly to the arduino.
 # Known Issues #
 
 ## In Gazebo simulation ##
-### Gazebo console (this possibly has no effect on the simulation.)###
+### Gazebo console (this possibly has no effect on the simulation.) ###
 
 When launching simulation, Gazebo console would split out a warn:
 
@@ -262,16 +263,11 @@ the differential drive controller does not gives accurate odometery. This maybe 
 - /odometry/gps topic is strange
 
 
-### robot localization ###
+## On real robot ##
 
-I am thinking of two way of using the ekf localization node.
+### navsat node and IMU orientiation ###
 
-1. use two ekf node, one for publishing odometry TF and another for publishing TF from map to odom. the ekf node would publish a topic
-called /odometry/filtered. Should two ekf node publish on the same topic?
-
-
-2. Use one ekf node. The odometry will be handled by the diff_drive_controller and the TF from map to odom would be handled by ekf node.
-the issue of this method is that the odometry published by the diff_drive_controller is not accurate (actually, terrible as hell)
+On real robot, the the yaw offset need to be found. when facing east, all heading data need to be zero.
 
 ## Hardware ##
 
@@ -279,7 +275,7 @@ the issue of this method is that the odometry published by the diff_drive_contro
 
 The IMU node would abort when the motor start moving. This is due to motors would induce noise to mess up IMU. Need to isolate the motor and computers.
 
-### IMU issue###
+### IMU issue ###
 
 The IMU does not looks right in the RVIZ.
 
