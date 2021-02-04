@@ -24,10 +24,10 @@ gear_reduction: 1.0
 motors_reversed: false
 
 # === PID parameters
-Kp: 400
+Kp: 600
 Kd: 500
 Ki: 1
-Ko: 20
+Ko: 50
 accel_limit: 10.0
 
 # === Sensor definitions.  Examples only - edit for your robot.
