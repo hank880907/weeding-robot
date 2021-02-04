@@ -176,8 +176,19 @@ This is a demo for dead reckoning. It can be launch by:
     $ roslaunch weeding_robot_description dead_reckoning_demo.launch
 
 Launch a rviz window on remote computer. Given a goal, the robot sould approach the destination autonomously.
+Or Use the 2D pose Estimate to mark way points.
 
     $ rosrun rviz rviz
+
+After way points marked, use
+
+    $ rostopic pub /start_journey std_msgs/Empty -1
+
+To execute way points.
+
+
+Dead reckoning software structure:
+![dead reckoning software structure](https://eng-git.canterbury.ac.nz/jhw83/weeding-robot/-/raw/master/weeding_robot_description/pictures/dead_reckoning_software_structure.svg)
 
 
 # Hardware #
