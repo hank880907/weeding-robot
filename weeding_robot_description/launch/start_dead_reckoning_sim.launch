@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <include file="$(find weeding_robot_description)/launch/spawn_weeding_robot.launch"/>
+    <include file="$(find weeding_robot_description)/launch/weeding_robot_control.launch"/>
+        <!-- Run the map server -->
+    <include file="$(find weeding_robot_navigation)/launch/start_map_server.launch" />
+
+    <!--- Run Move Base -->
+    <include file="$(find weeding_robot_navigation)/launch/move_base_map.launch" />
+
+    <node pkg="tf" type="static_transform_publisher" name="name_of_node" 
+          args="0 0 0 0 0 0 map odom 100">
+    </node>
+
+</launch>
