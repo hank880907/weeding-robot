@@ -47,6 +47,8 @@ To configure pijuice use
 
     $ pijuice_cli
 
+The raspberry pi will turn itself to a wifi hotspot if failed to connect to the previous wifi.
+
 
 
 ## Clone repository ##
@@ -167,7 +169,15 @@ To teleop, use this commend on either ubiquityrobot.local terminal or your local
     $ roslaunch weeding_robot_description teleop.launch
 
 
+## Dead reckoning demo on the real robot (on raspberry pi) ##
 
+This is a demo for dead reckoning. It can be launch by:
+
+    $ roslaunch weeding_robot_description dead_reckoning_demo.launch
+
+Launch a rviz window on remote computer. Given a goal, the robot sould approach the destination autonomously.
+
+    $ rosrun rviz rviz
 
 
 # Hardware #
