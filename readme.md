@@ -94,7 +94,7 @@ After install the required packages, build the work space by:
 
 ## recommanded ROS learning method ##
 
-[This website](https://www.theconstructsim.com/robotigniteacademy_learnros/ros-courses-library/) offers comprehensive resource for learning ROS. 
+[This website](https://www.theconstructsim.com/robotigniteacademy_learnros/ros-courses-library/) offers comprehensive resource and examples for learning ROS. 
 
 # Launching programs #
 
